@@ -261,9 +261,8 @@ def to_as1(rss):
       author = actor
 
     object_type = 'note'
-    content = (entry.get('summary')
-               or entry.get('content', [{}])[0].get('value')
-               or entry.get('description'))
+    content = (entry.get('content', [{}])[0].get('value')
+               or entry.get('description') or entry.get('summary'))
     title = entry.get('title')
     if content and title:
       if content.startswith(title.removesuffix('…').removesuffix('...')):
